@@ -51,11 +51,11 @@ $lg-viewport: only screen and (min-width: 75em);
         $size-list: ('xs', 'sm', 'md', 'lg');
         $media-list: ($xs-viewport, $sm-viewport, $md-viewport, $lg-viewport);
 
-        @each $i in $size-list {
-            $size: index($size-list, $i);
-            $media-query: index($media-list, $i);
+        @each $size in $size-list {
+            $i: index($size-list, $size);
+            $media-query: index($media-list, $size);
 
-            @media #{$media-query} {
+            @media #{nth($media-list, $i)} {
                 .col {
                     &.col-#{$size},
                     &.col-#{$size}-1,
